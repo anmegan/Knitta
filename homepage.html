@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="homepage.css">
     <script type="module" src="./homepage.js"></script>
     <script type="module" src="./homepage.css"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Dots:wght@400..700&family=Lobster&display=swap" rel="stylesheet">
     <style>
     #Object1 {
         margin-top: 100px;
@@ -16,14 +21,13 @@
     }
 
     </style>
-
+    <script type="module" src="firebaseauth.js"></script>
 </head>
-
 <body>
     <nav>
         <div class="wrapper">
             <div class="logo">
-                <a href='' img src="Logo Knitta.png" width="100px" height="50px">KNITA.</a>
+                <p style="font-family:'Courier New', Courier, monospace; font-size: 80px; color: rgb(255, 60, 93); font-weight: 500;">KNITTA.</p>
             </div>
             <div class="menu">
                 <ul>
@@ -34,17 +38,49 @@
             </div>
         </div>
     </nav>
+
+    <!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Stunting Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Kode_Kabupaten_Kota" placeholder="Kode_Kabupaten_Kota" required="required" />
+        <input type="text" name="Nama_Kabupaten_Kota" placeholder="Nama_Kabupaten_Kota" required="required" />
+		<input type="text" name="Tahun" placeholder="Tahun" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+    <!-- untuk home -->
     <div class="wrapper">
-        <!-- untuk home -->
         <section id="home">
             <div class="kolom">
-                <img src="Logo Knitta.png" width="130px" height="130px">
                 <p class="deskripsi">Knit Anywhere</p>
-                <h2>knit? ya knita</h2>
-                <p>Mau tampil lebih modis tapi tetep nyaman? Knita solusinya</p>
+                <h2 style="font-family: 'comic sans ms';">knit? ya knita</h2>
+                <p class="desc_pro">Mau tampil lebih modis tapi tetep nyaman? Knita solusinya</p>
                 <p><a href="" class="tbl-pink">More About Us!</a></p>
             </div>
-            <img id ="Object1" src="Produk Knitta2.png"> 
+            <img id ="Object1" style="margin-left: 85px;" src="img/Produk Knitta2.png"> 
         </section>
 
         <!-- untuk about -->
@@ -52,9 +88,9 @@
             <div class="kolom">
                 <p class="deskripsi">Grab Yours Now!</p>
                 <h2>Do not Miss It!</h2>
-                <p>Cari rajutan berkualitas dengan desain kekinian? Knita hadir untukmu! Setiap produk kami dibuat dengan bahan lembut dan nyaman, cocok untuk segala cuaca. Dapatkan berbagai pilihan knitwear stylish yang bisa dipadupadankan untuk tampilan casual atau formal. </p>
+                <p class="desc_knit"style="font-family: 'courier';">Cari rajutan berkualitas dengan desain kekinian? Knita hadir untukmu! Setiap produk kami dibuat dengan bahan lembut dan nyaman, cocok untuk segala cuaca. Dapatkan berbagai pilihan knitwear stylish yang bisa dipadupadankan untuk tampilan casual atau formal. </p>
             </div>
-            <img src="Produk Knitta.png" width="500px" height="500px"> 
+            <img src="img/Produk Knitta.png" width="500px" height="500px"> 
         </section>
 
         <section id="about">
@@ -62,34 +98,41 @@
                 <div class="kolom">
                     <p class="deskripsi"> Meet Our Team</p>
                     <h2>!</h2>
-                    Behind The Scenes Of Knita</p>
+                    
                 </div>
 
                 <div class="tutor-list">
                     <div class="kartu-tutor">
-                        <img src="https://dfu1k3y1rami2.cloudfront.net/wp-content/uploads/2014/07/26195109/2020_cb.jpg"/>
-                        <p>Fathurrizqa Balova</p>
+                        <img src="img/Fathurrizqa.jpg"/>
+                        <a href="https://www.instagram.com/balova_02?igsh=dnNjOTlqZ2U4dmxi">
+                            <p>Fathurrizqa Balova</p>
+                        </a>
                     </div>
                     <div class="kartu-tutor">
-                        <img src="https://images.ctfassets.net/1wryd5vd9xez/4DxzhQY7WFsbtTkoYntq23/a4a04701649e92a929010a6a860b66bf/https___cdn-images-1.medium.com_max_2000_1_Y6l_FDhxOI1AhjL56dHh8g.jpeg"/>
-                        <p>Megan Ananta</p>
+                        <img src="img/megan.JPG"/>
+                        <a href="https://www.instagram.com/anmegannn/profilecard/?igsh=OGc3ZTA0OHEwamcw">
+                            <p>Megan Ananta</p>
+                        </a>
                     </div>
                     <div class="kartu-tutor">
-                        <img src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/fc/3021752-inline-i-1-why-square-designed-its-new-offices-to-work-like-a-city.jpg"/>
-                        <p>Prita Hesmono</p>
+                        <img src="img/prita.jpg"/>
+                        <a href="https://www.instagram.com/prita.th/">
+                            <p>Prita Trivena Hesmono</p>
+                        </a>
                     </div>
                     <div class="kartu-tutor">
-                        <img src="https://blogs-images.forbes.com/jackkelly/files/2019/06/Jack-Kelly_avatar_1559658819-400x400.jpg"/>
-                        <p>Yasmin Azahra</p>
+                        <img src="img/Yasmin.JPG"/>
+                        <a href="https://www.instagram.com/yasmineszahhra/profilecard/?igsh=MWV5enJkM3FuZXhiNg%3D%3D">
+                            <p>Yasmin Azahra</p>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
-
-    
-
+    </div>
+        
     <div id="about">
-        <div class="wrapper">
+        <div class="wrapper1">
             <div class="footer">
                 <div class="footer-section">
                     <h3>Adress</h3>
@@ -97,22 +140,17 @@
                 </div>
                 <div class="footer-section">
                     <h3>Email</h3>
-                    <p>yasmina.zahra2803@gmail.com   Meganananta@gmail.com     Fathurrizqa@gmail.com    PritaHesmono@gmail.com</p>
-                         
-                </div>
-                <div class="footer-section">
-                    <h3>Social Media</h3>
-                    <p>@yasmineszahhra     @Meganananta    @Fathurrizqa     @PritaHesmono</p>
+                    <p>yasmina.zahra2803@gmail.com</p>
+                    <p>Meganananta@gmail.com</p> 
+                    <p>Fathurrizqa@gmail.com </p>   
+                    <p>Prita.trivena.h@gmail.com</p>   
                 </div>
             </div>
         </div>
     </div>
 
     <div id="copyright">
-        <div class="wrapper">
             &copy; 2024. <b>Knita.</b> All Rights Reserved.
-        </div>
     </div>    
 </body>
 </html>
-
